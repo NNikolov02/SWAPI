@@ -50,6 +50,9 @@ public class Character {
     private Starships starships;
 
     @ManyToOne
+    private Planets planets;
+
+    @ManyToOne
     private Vehicle vehicle;
 
 
