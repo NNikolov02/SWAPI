@@ -2,9 +2,9 @@ package Web.error;
 
 import java.util.UUID;
 
-public class PersonsApiBaseException extends RuntimeException {
+public class CharacterApiBaseException extends RuntimeException {
     private final UUID errorid;
-    public PersonsApiBaseException(String massage){
+    public CharacterApiBaseException(String massage){
         super(massage);
         this.errorid = UUID.randomUUID();
 

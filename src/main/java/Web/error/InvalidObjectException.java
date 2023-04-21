@@ -2,7 +2,7 @@ package Web.error;
 
 import java.util.Map;
 
-public class InvalidObjectException extends PersonsApiBaseException {
+public class InvalidObjectException extends CharacterApiBaseException {
 
     private final Map<String, String> errors;
 

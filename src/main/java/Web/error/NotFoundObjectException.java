@@ -1,6 +1,6 @@
 package Web.error;
 
-public class NotFoundObjectException extends PersonsApiBaseException {
+public class NotFoundObjectException extends CharacterApiBaseException {
     private final String ObjectClaz;
     private final String id;
     public NotFoundObjectException(String massage, String ObjectClaz,String id){

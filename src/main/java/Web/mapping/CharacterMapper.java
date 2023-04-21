@@ -11,20 +11,19 @@ import org.mapstruct.NullValuePropertyMappingStrategy;
 
 import java.util.List;
 
-@Mapper(uses = FilmMapper.class)
+@Mapper(uses = {FilmMapper.class, PlanetsMapper.class, SpeciesMapper.class,StarshipsMapper.class,VehicleMapper.class})
 public interface CharacterMapper {
 
     @Mapping(target = "id", ignore = true)
-    @Mapping(target = "photos", ignore = true)
     Character modelFromCreateRequest(CharacterCreateRequest characterCreateDto);
 
     CharacterResponse responseFromModel(Character character);
 
-    @Mapping(target = "photos", ignore = true)
-    @Mapping(target = "egnNumber", ignore = true)
+    @Mapping(target = "gender",ignore = true)
+    @Mapping(target = "birthYear", nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+    @Mapping(target = "mass", nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     @Mapping(target = "name", nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
-    @Mapping(target = "age", nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
-    @Mapping(target = "address", nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+    @Mapping(target = "height", nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     void updateModelFromDto(CharacterUpdateRequest personUpdateDto, @MappingTarget Character character);
     List<CharacterResponse> listOfModelToListOfDto(List<Character>character);
 

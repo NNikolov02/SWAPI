@@ -27,9 +27,14 @@ public class CharacterService {
 
     public Character findById(String characterId) {
         return repo.findById(UUID.fromString(characterId)).orElseThrow(() -> {
-            throw new NotFoundObjectException("Person Not Found", Character.class.getName(), characterId);
+            throw new NotFoundObjectException("Character Not Found", Character.class.getName(), characterId);
         });
     }
+    public void deleteById(String characterId) {
+
+        repo.deleteById(UUID.fromString(characterId));
+    }
+
 
 
 }

@@ -1,15 +1,17 @@
 package Web.Model;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.*;
 import lombok.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import org.hibernate.mapping.List;
 
+
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -19,10 +21,11 @@ import java.util.UUID;
 @AllArgsConstructor
 
 public class Character {
+
     @Id
     @GeneratedValue
     @Setter(AccessLevel.NONE)
-    @JsonProperty("ID")
+    @JsonProperty("id")
     private UUID id;
 
     @JsonProperty("name")
@@ -42,18 +45,23 @@ public class Character {
     private int mass;
     @JsonProperty("birth_year")
     private String birthYear;
-    @JsonProperty("film")
-    @ManyToOne
-    private Film film;
+    @JsonIgnore
+    @ManyToMany(fetch =FetchType.EAGER,mappedBy = "filmCharacter")
+    private Set<Film> characterFilm = new HashSet<>();
 
-    @ManyToOne
-    private Starships starships;
+    @JsonIgnore
+    @ManyToMany(fetch =FetchType.EAGER,mappedBy = "StarshipsCharacter")
+    //@JoinTable(name = "character_starships", joinColumns = @JoinColumn(name = "character_id"),
+           /// inverseJoinColumns = @JoinColumn(name = "starships_id"))
+    private Set<Starships> characterStarships = new HashSet<>();
 
-    @ManyToOne
-    private Planets planets;
+    @JsonIgnore
+    @ManyToMany(fetch =FetchType.EAGER,mappedBy = "planetsCharacter")
+    private Set<Planets> characterPlanets = new HashSet<>();
 
-    @ManyToOne
-    private Vehicle vehicle;
+    @JsonIgnore
+    @ManyToMany(fetch =FetchType.EAGER,mappedBy = "vehicleCharacter")
+    private Set<Vehicle> characterVehicle = new HashSet<>();
 
 
 }
