@@ -15,11 +15,18 @@ import java.util.List;
 public interface CharacterMapper {
 
     @Mapping(target = "id", ignore = true)
+    @Mapping(target = "characterFilm", ignore = true)
+    @Mapping(target = "characterVehicle", ignore = true)
+    @Mapping(target = "characterStarships", ignore = true)
+    @Mapping(target = "characterPlanets", ignore = true)
     Character modelFromCreateRequest(CharacterCreateRequest characterCreateDto);
 
     CharacterResponse responseFromModel(Character character);
-
-    @Mapping(target = "gender",ignore = true)
+    @Mapping(target = "characterFilm", ignore = true)
+    @Mapping(target = "characterVehicle", ignore = true)
+    @Mapping(target = "characterStarships", ignore = true)
+    @Mapping(target = "characterPlanets", ignore = true)
+    @Mapping(target = "gender",nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     @Mapping(target = "birthYear", nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     @Mapping(target = "mass", nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     @Mapping(target = "name", nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)

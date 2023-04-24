@@ -22,15 +22,15 @@ public class CharacterUpdateRequest {
     private String birthYear;
 
 
-    private FilmDto film;
+    private FilmDto characterFilm;
 
 
-    private StarshipsDto starships;
+    private StarshipsDto characterStarships;
 
 
-    private PlanetsDto planets;
+    private PlanetsDto characterPlanets;
 
 
-    private VehicleDto vehicle;
+    private VehicleDto characterVehicle;
 
 }
