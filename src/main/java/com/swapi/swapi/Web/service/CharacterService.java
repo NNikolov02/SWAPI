@@ -28,7 +28,6 @@ public class CharacterService {
     public Page<Character> fetchAll(int currentPage, int pageSize) {
         return pagingRepo.findAll(PageRequest.of(currentPage, pageSize));
     }
-
     public Character findById(String characterId) {
         return repo.findById(UUID.fromString(characterId)).orElseThrow(() -> {
             throw new NotFoundObjectException("Character Not Found", Character.class.getName(), characterId);

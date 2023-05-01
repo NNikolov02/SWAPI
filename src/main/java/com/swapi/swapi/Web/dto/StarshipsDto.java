@@ -10,6 +10,8 @@ import java.util.UUID;
 @Builder
 public class StarshipsDto {
     private UUID id;
+
+    private String url;
     private String name;
 
     private String MGLT;

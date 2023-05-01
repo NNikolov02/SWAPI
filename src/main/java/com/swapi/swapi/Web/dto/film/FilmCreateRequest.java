@@ -14,7 +14,7 @@ import lombok.Data;
 public class FilmCreateRequest {
 
     private String title;
-
+    private String url;
     private String created;
     private String director;
     private String edited;

@@ -18,6 +18,8 @@ public class Starships {
     @Setter(AccessLevel.NONE)
     @JsonProperty("ID")
     private UUID id;
+
+    private String url;
     private String name;
 
     private String MGLT;

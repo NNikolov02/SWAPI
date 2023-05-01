@@ -20,6 +20,8 @@ public class Vehicle {
     @JsonProperty("ID")
     private UUID id;
 
+    private String url;
+
     private String name;
 
     @JsonProperty("cargo_capacity")

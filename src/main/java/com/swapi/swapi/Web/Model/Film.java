@@ -22,6 +22,8 @@ public class Film {
     private UUID id;
     private String title;
 
+    private String url;
+
     private String created;
     private String director;
     private String edited;

@@ -3,9 +3,11 @@ package com.swapi.swapi.Web.Model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.swapi.swapi.Web.validation.ValidGender;
 import jakarta.persistence.*;
 import lombok.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.hibernate.validator.constraints.Range;
 
 
 import java.util.HashSet;
@@ -26,8 +28,11 @@ public class Character {
     @JsonProperty("id")
     private UUID id;
 
+    private String url;
+
     @JsonProperty("name")
     private String name;
+    @ValidGender(message = "Character should be male or female!")
     @JsonProperty("gender")
     private String gender;
     @JsonProperty("eye_color")
@@ -39,6 +44,7 @@ public class Character {
 
     @JsonProperty("height")
     private int height;
+    @Range(min = 0, max = 300, message = "i like mass from 0 to 300")
     @JsonProperty("mass")
     private int mass;
     @JsonProperty("birth_year")

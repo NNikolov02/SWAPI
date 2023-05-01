@@ -22,6 +22,7 @@ public class Species {
     @JsonProperty("ID")
     private UUID id;
 
+    private String url;
     @JsonProperty("average_height")
     private String averageheight;
     @JsonProperty("average_lifespan")

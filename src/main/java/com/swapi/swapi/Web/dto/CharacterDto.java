@@ -12,6 +12,8 @@ public class CharacterDto {
     @JsonProperty("id")
     private UUID id;
 
+    private String url;
+
 
     private String name;
 

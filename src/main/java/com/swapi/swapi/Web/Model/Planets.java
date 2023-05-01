@@ -21,6 +21,8 @@ public class Planets {
     @JsonProperty("ID")
     private UUID id;
 
+    private String url;
+
     private String climate;
     private String created;
     private String diameter;

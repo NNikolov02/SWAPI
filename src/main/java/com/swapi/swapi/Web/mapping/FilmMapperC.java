@@ -37,6 +37,7 @@ public interface FilmMapperC {
     @Mapping(target = "openingcrawl", nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     @Mapping(target = "producer", nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     @Mapping(target = "releasedate", nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+    @Mapping(target = "url", nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     void updateModelFromDto(FilmUpdateRequest filmUpdateDto, @MappingTarget Film film);
     List<FilmResponse> listOfModelToListOfDto(List<Film>film);
 

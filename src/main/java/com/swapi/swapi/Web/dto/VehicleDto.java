@@ -11,6 +11,8 @@ import java.util.UUID;
 public class VehicleDto {
     private UUID id;
 
+    private String url;
+
     private String name;
 
     @JsonProperty("cargo_capacity")

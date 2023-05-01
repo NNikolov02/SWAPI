@@ -6,11 +6,16 @@ import com.swapi.swapi.Web.dto.character.CharacterResponse;
 import lombok.Builder;
 import lombok.Data;
 
+import java.util.UUID;
+
 @Data
 @Builder
 public class FilmUpdateRequest {
 
+
     private String title;
+
+    private String url;
 
     private String created;
     private String director;

@@ -9,6 +9,8 @@ import lombok.Data;
 public class SpeciesDto {
     @JsonProperty("average_height")
     private String averageheight;
+
+    private String url;
     @JsonProperty("average_lifespan")
     private String averagelifespan;
     private String classification;

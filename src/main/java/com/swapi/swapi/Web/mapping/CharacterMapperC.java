@@ -34,6 +34,7 @@ public interface CharacterMapperC {
     @Mapping(target = "mass", nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     @Mapping(target = "name", nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     @Mapping(target = "height", nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+    @Mapping(target = "url",nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     void updateModelFromDto(CharacterUpdateRequest characterUpdateDto, @MappingTarget Character character);
     List<CharacterResponse> listOfModelToListOfDto(List<Character>character);
 
