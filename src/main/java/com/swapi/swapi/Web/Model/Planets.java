@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -41,11 +42,26 @@ public class Planets {
     @JsonProperty("surface_water")
     private String surface_water;
     private String terrain;
-    @OneToOne(mappedBy = "planets")
-    @JsonIgnoreProperties("planets")
-    private Character character;
-    @OneToOne(mappedBy = "planets")
-    @JsonIgnoreProperties("planets")
-    private Film film;
+
+    @ManyToMany(mappedBy = "planets")
+    private Set<Character> characters;
+    @ManyToMany(mappedBy = "planets")
+    private Set<Film> films;
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "species_id", referencedColumnName = "id")
+    @JsonIgnoreProperties("character")
+    private Species species;
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "starships_id", referencedColumnName = "id")
+    @JsonIgnoreProperties("character")
+    private Starships starships;
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "vehicle_id", referencedColumnName = "id")
+    @JsonIgnoreProperties("character")
+    private Vehicle vehicle;
+
+
 
 }

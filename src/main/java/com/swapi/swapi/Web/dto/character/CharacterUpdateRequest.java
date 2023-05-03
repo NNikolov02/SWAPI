@@ -11,8 +11,7 @@ import lombok.Data;
 @Builder
 public class CharacterUpdateRequest {
     private String name;
-
-    private String url;
+    
 
     @ValidGender(message = "Character should be male or female")
     private String gender;

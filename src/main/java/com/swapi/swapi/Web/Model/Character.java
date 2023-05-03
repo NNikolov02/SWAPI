@@ -59,10 +59,13 @@ public class Character {
     private Set<Film> films;
 
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "planets_id", referencedColumnName = "id")
-    @JsonIgnoreProperties("character")
-    private Planets planets;
+    @ManyToMany
+    @JoinTable(name = "character_planets", joinColumns = @JoinColumn(name = "character_id"),
+            inverseJoinColumns = @JoinColumn(name = "planets_id"))
+    @JsonIgnore
+    private Set<Planets> planets;
+
+
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "species_id", referencedColumnName = "id")

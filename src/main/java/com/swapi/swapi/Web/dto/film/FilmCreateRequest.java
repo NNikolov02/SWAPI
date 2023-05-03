@@ -1,10 +1,7 @@
 package com.swapi.swapi.Web.dto.film;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.swapi.swapi.Web.dto.PlanetsDto;
-import com.swapi.swapi.Web.dto.SpeciesDto;
-import com.swapi.swapi.Web.dto.StarshipsDto;
-import com.swapi.swapi.Web.dto.VehicleDto;
+import com.swapi.swapi.Web.dto.*;
 import com.swapi.swapi.Web.dto.character.CharacterResponse;
 import lombok.Builder;
 import lombok.Data;
@@ -14,7 +11,7 @@ import lombok.Data;
 public class FilmCreateRequest {
 
     private String title;
-    private String url;
+
     private String created;
     private String director;
     private String edited;
@@ -27,7 +24,7 @@ public class FilmCreateRequest {
     @JsonProperty("release_date")
     private String releasedate;
 
-    private CharacterResponse character;
+    private CharacterDto character;
 
     private StarshipsDto starships;
 

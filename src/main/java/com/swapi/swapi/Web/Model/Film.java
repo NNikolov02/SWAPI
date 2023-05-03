@@ -1,5 +1,6 @@
 package com.swapi.swapi.Web.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
@@ -39,10 +40,12 @@ public class Film {
     @ManyToMany(mappedBy = "films")
     private Set<Character> characters;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "planets_id", referencedColumnName = "id")
-    @JsonIgnoreProperties("film")
-    private Planets planets;
+    @ManyToMany
+    @JoinTable(name = "film_planets", joinColumns = @JoinColumn(name = "film_id"),
+            inverseJoinColumns = @JoinColumn(name = "planets_id"))
+    @JsonIgnore
+    private Set<Planets> planets;
+
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "species_id", referencedColumnName = "id")

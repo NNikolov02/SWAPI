@@ -15,7 +15,6 @@ public class FilmUpdateRequest {
 
     private String title;
 
-    private String url;
 
     private String created;
     private String director;
