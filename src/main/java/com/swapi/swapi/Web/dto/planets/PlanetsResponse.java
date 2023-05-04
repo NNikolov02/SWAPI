@@ -3,14 +3,13 @@ package com.swapi.swapi.Web.dto.planets;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.swapi.swapi.Web.dto.*;
 import lombok.Builder;
-import lombok.Builder.ObtainVia;
 import lombok.Data;
 
 import java.util.UUID;
 
 @Data
 @Builder
-public class PlanetsrResponse {
+public class PlanetsResponse {
 
     private UUID id;
 

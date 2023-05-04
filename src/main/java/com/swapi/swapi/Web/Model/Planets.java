@@ -1,11 +1,13 @@
 package com.swapi.swapi.Web.Model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
@@ -43,10 +45,13 @@ public class Planets {
     private String surface_water;
     private String terrain;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "planets")
-    private Set<Character> characters;
+    private Set<Character> characters = new HashSet<>();
+
+    @JsonIgnore
     @ManyToMany(mappedBy = "planets")
-    private Set<Film> films;
+    private Set<Film> films = new HashSet<>();
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "species_id", referencedColumnName = "id")
     @JsonIgnoreProperties("character")

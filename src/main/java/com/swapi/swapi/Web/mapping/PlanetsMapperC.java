@@ -1,13 +1,9 @@
 package com.swapi.swapi.Web.mapping;
 
-import com.swapi.swapi.Web.Model.Film;
 import com.swapi.swapi.Web.Model.Planets;
-import com.swapi.swapi.Web.dto.film.FilmCreateRequest;
-import com.swapi.swapi.Web.dto.film.FilmResponse;
-import com.swapi.swapi.Web.dto.film.FilmUpdateRequest;
 import com.swapi.swapi.Web.dto.planets.PlanetsCreateRequest;
 import com.swapi.swapi.Web.dto.planets.PlanetsUpdateRequest;
-import com.swapi.swapi.Web.dto.planets.PlanetsrResponse;
+import com.swapi.swapi.Web.dto.planets.PlanetsResponse;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
@@ -17,7 +13,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-@Mapper(uses = {CharacterMapperC.class, FilmMapper.class, SpeciesMapper.class,StarshipsMapper.class,VehicleMapper.class})
+@Mapper(uses = {CharacterMapper.class, FilmMapper.class, SpeciesMapper.class,StarshipsMapper.class,VehicleMapper.class})
 public interface PlanetsMapperC {
 
     @Mapping(target = "id", ignore = true)
@@ -28,7 +24,7 @@ public interface PlanetsMapperC {
     @Mapping(target = "species", ignore = true)
     Planets modelFromCreateRequest(PlanetsCreateRequest planetsCreateDto);
 
-    PlanetsrResponse responseFromModel(Planets planets);
+    PlanetsResponse responseFromModel(Planets planets);
     @Mapping(target = "characters", ignore = true)
     @Mapping(target = "vehicle", ignore = true)
     @Mapping(target = "starships", ignore = true)
@@ -47,7 +43,7 @@ public interface PlanetsMapperC {
     @Mapping(target = "terrain", nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     @Mapping(target = "url", nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     void updateModelFromDto(PlanetsUpdateRequest planetsUpdateDto, @MappingTarget Planets planets);
-    List<PlanetsrResponse> listOfModelToListOfDto(List<Planets>planets);
+    List<PlanetsResponse> listOfModelToListOfDto(List<Planets>planets);
 
-    List<PlanetsrResponse> listOfModelToListOfDto(Iterable<Planets> all);
+    List<PlanetsResponse> listOfModelToListOfDto(Iterable<Planets> all);
 }

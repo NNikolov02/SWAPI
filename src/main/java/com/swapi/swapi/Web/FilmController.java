@@ -63,7 +63,7 @@ public class FilmController {
 
         Map<String, String> validationErrors = validator.validate(filmDto);
         if (validationErrors.size() != 0) {
-            throw new InvalidObjectException("Invalid Character Create", validationErrors);
+            throw new InvalidObjectException("Invalid Film Create", validationErrors);
         }
 
 

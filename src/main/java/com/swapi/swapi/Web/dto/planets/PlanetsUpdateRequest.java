@@ -8,7 +8,7 @@ import lombok.Data;
 @Data
 @Builder
 public class PlanetsUpdateRequest {
-
+    private String url;
     private String climate;
     private String created;
     private String diameter;

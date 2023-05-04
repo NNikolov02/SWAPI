@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-@Mapper(uses = {CharacterMapperC.class, PlanetsMapper.class, SpeciesMapper.class,StarshipsMapper.class,VehicleMapper.class})
+@Mapper(uses = {CharacterMapper.class, PlanetsMapper.class, SpeciesMapper.class,StarshipsMapper.class,VehicleMapper.class})
 public interface FilmMapperC {
 
     @Mapping(target = "id", ignore = true)

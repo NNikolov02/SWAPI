@@ -9,7 +9,7 @@ import lombok.Data;
 @Data
 @Builder
 public class FilmCreateRequest {
-
+    private String url;
     private String title;
 
     private String created;

@@ -12,7 +12,7 @@ import java.util.UUID;
 @Builder
 public class FilmUpdateRequest {
 
-
+    private String url;
     private String title;
 
 
