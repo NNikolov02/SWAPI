@@ -1,17 +1,42 @@
 package com.swapi.swapi.Web.mapping;
 
 import com.swapi.swapi.Web.Model.Character;
-import com.swapi.swapi.Web.Model.Planets;
-import com.swapi.swapi.Web.dto.CharacterDto;
-import com.swapi.swapi.Web.dto.PlanetsDto;
+import com.swapi.swapi.Web.dto.character.CharacterCreateRequest;
+import com.swapi.swapi.Web.dto.character.CharacterResponse;
+import com.swapi.swapi.Web.dto.character.CharacterUpdateRequest;
 import org.mapstruct.Mapper;
-import org.mapstruct.MappingConstants;
+import org.mapstruct.Mapping;
+import org.mapstruct.MappingTarget;
+import org.mapstruct.NullValuePropertyMappingStrategy;
+import org.springframework.stereotype.Component;
 
-@Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
+import java.util.List;
+
+@Component
+@Mapper(uses = {FilmMapperDTO.class, PlanetsMapperDTO.class, SpeciesMapperDTO.class, StarshipsMapperDTO.class, VehicleMapperDTO.class})
 public interface CharacterMapper {
 
+    @Mapping(target = "id", ignore = true)
+    @Mapping(target = "films", ignore = true)
+    @Mapping(target = "vehicle", ignore = true)
+    @Mapping(target = "starships", ignore = true)
+    @Mapping(target = "planets", ignore = true)
+    @Mapping(target = "species", ignore = true)
+    Character modelFromCreateRequest(CharacterCreateRequest characterCreateDto);
 
-    CharacterDto modelRoDto(Character character);
+    CharacterResponse responseFromModel(Character character);
+    @Mapping(target = "films", ignore = true)
+    @Mapping(target = "vehicle", ignore = true)
+    @Mapping(target = "starships", ignore = true)
+    @Mapping(target = "planets", ignore = true)
+    @Mapping(target = "gender",nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+    @Mapping(target = "birthYear", nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+    @Mapping(target = "mass", nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+    @Mapping(target = "name", nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+    @Mapping(target = "height", nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+    @Mapping(target = "url",nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+    void updateModelFromDto(CharacterUpdateRequest characterUpdateDto, @MappingTarget Character character);
+    List<CharacterResponse> listOfModelToListOfDto(List<Character>character);
 
-    Character dtoModel(Character characterDto);
+    List<CharacterResponse> listOfModelToListOfDto(Iterable<Character> all);
 }

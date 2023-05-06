@@ -6,6 +6,8 @@ import com.swapi.swapi.Web.dto.character.CharacterResponse;
 import lombok.Builder;
 import lombok.Data;
 
+import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 @Data
@@ -29,16 +31,18 @@ public class FilmResponse {
     @JsonProperty("release_date")
     private String releasedate;
 
-    private CharacterDto character;
-
-    private StarshipsDto starships;
 
 
-    private PlanetsDto planets;
+    private Set<CharacterDto> character;
+
+    private Set<StarshipsDto> starships;
 
 
-    private VehicleDto vehicle;
+    private Set<PlanetsDto> planets;
 
-    private SpeciesDto species;
+
+    private Set<VehicleDto> vehicle;
+
+    private Set<SpeciesDto> species;
 
 }

@@ -8,6 +8,8 @@ import lombok.Builder;
 import lombok.Data;
 import org.hibernate.validator.constraints.Range;
 
+import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 @Data
@@ -23,7 +25,7 @@ public class CharacterResponse {
     @ValidGender(message = "Character should be male or female!")
     private String gender;
 
-    private SpeciesDto species;
+
 
     private int height;
     @Range(min = 0, max = 300, message = "i like mass from 0 to 300")
@@ -32,14 +34,18 @@ public class CharacterResponse {
     private String birthYear;
 
 
-    private FilmDto film;
 
 
-    private StarshipsDto starships;
+
+    private Set<FilmDto> films;
+
+    private Set<StarshipsDto> starships;
 
 
-    private PlanetsDto planets;
+    private Set<PlanetsDto> planets;
 
 
-    private VehicleDto vehicle;
+    private Set<VehicleDto> vehicle;
+
+    private Set<SpeciesDto> species;
 }

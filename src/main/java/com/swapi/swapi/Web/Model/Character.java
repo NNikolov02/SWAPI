@@ -53,8 +53,8 @@ public class Character {
 
 
     @ManyToMany
-    @JoinTable(name = "character_film", joinColumns = @JoinColumn(name = "character_id"),
-            inverseJoinColumns = @JoinColumn(name = "film_id"))
+    @JoinTable(name = "character_films", joinColumns = @JoinColumn(name = "character_id"),
+            inverseJoinColumns = @JoinColumn(name = "films_id"))
     @JsonIgnore
     private Set<Film> films;
 
@@ -65,22 +65,27 @@ public class Character {
     @JsonIgnore
     private Set<Planets> planets;
 
+    @ManyToMany
+    @JoinTable(name = "character_species", joinColumns = @JoinColumn(name = "character_id"),
+            inverseJoinColumns = @JoinColumn(name = "species_id"))
+    @JsonIgnore
+    private Set<Species> species;
+    @ManyToMany
+    @JoinTable(name = "character_starships", joinColumns = @JoinColumn(name = "character_id"),
+            inverseJoinColumns = @JoinColumn(name = "starships_id"))
+    @JsonIgnore
+    private Set<Starships> starships;
+    @ManyToMany
+    @JoinTable(name = "character_vehicle", joinColumns = @JoinColumn(name = "character_id"),
+            inverseJoinColumns = @JoinColumn(name = "vehicle_id"))
+    @JsonIgnore
+    private Set<Vehicle> vehicle;
 
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "species_id", referencedColumnName = "id")
-    @JsonIgnoreProperties("character")
-    private Species species;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "starships_id", referencedColumnName = "id")
-    @JsonIgnoreProperties("character")
-    private Starships starships;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "vehicle_id", referencedColumnName = "id")
-    @JsonIgnoreProperties("character")
-    private Vehicle vehicle;
+
+
 
 
     //@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)

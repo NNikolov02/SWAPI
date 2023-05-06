@@ -1,10 +1,13 @@
 package com.swapi.swapi.Web.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -51,13 +54,20 @@ public class Starships {
     //@JsonProperty("starship_class")
    // private String starshipclass;
 
-    @OneToOne(mappedBy = "starships")
-    @JsonIgnoreProperties("starships")
-    private Character character;
+    @ManyToMany(mappedBy = "starships")
+    private Set<Character> characters = new HashSet<>();
+    @ManyToMany(mappedBy = "starships")
+    private Set<Film> films = new HashSet<>();
+    @ManyToMany(mappedBy = "starships")
+    private Set<Planets> planets = new HashSet<>();
+    @ManyToMany(mappedBy = "starships")
+    private Set<Species> species = new HashSet<>();
 
-    @OneToOne(mappedBy = "starships")
-    @JsonIgnoreProperties("starships")
-    private Film film;
+    @ManyToMany
+    @JoinTable(name = "starships_vehicle", joinColumns = @JoinColumn(name = "starships_id"),
+            inverseJoinColumns = @JoinColumn(name = "vehicle_id"))
+    @JsonIgnore
+    private Set<Vehicle> vehicle;
 
 
 

@@ -7,7 +7,7 @@ import com.swapi.swapi.Web.dto.planets.PlanetsApiPage;
 import com.swapi.swapi.Web.dto.planets.PlanetsCreateRequest;
 import com.swapi.swapi.Web.dto.planets.PlanetsResponse;
 import com.swapi.swapi.Web.error.InvalidObjectException;
-import com.swapi.swapi.Web.mapping.PlanetsMapperC;
+import com.swapi.swapi.Web.mapping.PlanetsMapper;
 import com.swapi.swapi.Web.service.PlanetsService;
 import com.swapi.swapi.Web.validation.ObjectValidator;
 import lombok.AllArgsConstructor;
@@ -28,7 +28,7 @@ public class PlanetsController {
     @Autowired
     private PlanetsService planetsService;
     @Autowired
-    private PlanetsMapperC planetsMapper;
+    private PlanetsMapper planetsMapper;
     private final Integer Page_Size = 10;
 
 

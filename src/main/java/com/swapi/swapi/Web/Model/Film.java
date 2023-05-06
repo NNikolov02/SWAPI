@@ -7,6 +7,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 
+import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
@@ -38,29 +39,31 @@ public class Film {
     private String releasedate;
     //private List<String> species;
     @ManyToMany(mappedBy = "films")
-    private Set<Character> characters;
+    private Set<Character> characters = new HashSet<>();
 
     @ManyToMany
-    @JoinTable(name = "film_planets", joinColumns = @JoinColumn(name = "film_id"),
+    @JoinTable(name = "films_planets", joinColumns = @JoinColumn(name = "films_id"),
             inverseJoinColumns = @JoinColumn(name = "planets_id"))
     @JsonIgnore
     private Set<Planets> planets;
 
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "species_id", referencedColumnName = "id")
-    @JsonIgnoreProperties("film")
-    private Species species;
+    @ManyToMany
+    @JoinTable(name = "films_species", joinColumns = @JoinColumn(name = "films_id"),
+            inverseJoinColumns = @JoinColumn(name = "species_id"))
+    @JsonIgnore
+    private Set<Species> species;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "starships_id", referencedColumnName = "id")
-    @JsonIgnoreProperties("film")
-    private Starships starships;
-
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "vehicle_id", referencedColumnName = "id")
-    @JsonIgnoreProperties("film")
-    private Vehicle vehicle;
+    @ManyToMany
+    @JoinTable(name = "films_starships", joinColumns = @JoinColumn(name = "films_id"),
+            inverseJoinColumns = @JoinColumn(name = "starships_id"))
+    @JsonIgnore
+    private Set<Starships> starships;
+    @ManyToMany
+    @JoinTable(name = "films_vehicle", joinColumns = @JoinColumn(name = "films_id"),
+            inverseJoinColumns = @JoinColumn(name = "vehicle_id"))
+    @JsonIgnore
+    private Set<Vehicle> vehicle;
 
 
 

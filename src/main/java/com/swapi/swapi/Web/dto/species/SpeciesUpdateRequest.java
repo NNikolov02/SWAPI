@@ -1,15 +1,16 @@
-package com.swapi.swapi.Web.dto;
+package com.swapi.swapi.Web.dto.species;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.swapi.swapi.Web.dto.*;
 import lombok.Builder;
 import lombok.Data;
 
-import java.util.UUID;
+import java.util.Set;
 
 @Data
 @Builder
-public class SpeciesDto {
-    private UUID id;
+public class SpeciesUpdateRequest {
+
     @JsonProperty("average_height")
     private String averageheight;
 
@@ -30,4 +31,16 @@ public class SpeciesDto {
 
     @JsonProperty("skin_colors")
     private String skincolors;
+
+    private Set<CharacterDto> character;
+
+    private Set<StarshipsDto> starships;
+
+
+    private Set<PlanetsDto> planets;
+
+
+    private Set<VehicleDto> vehicle;
+
+    private Set<FilmDto> films;
 }

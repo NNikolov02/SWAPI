@@ -52,20 +52,22 @@ public class Planets {
     @JsonIgnore
     @ManyToMany(mappedBy = "planets")
     private Set<Film> films = new HashSet<>();
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "species_id", referencedColumnName = "id")
-    @JsonIgnoreProperties("character")
-    private Species species;
+    @ManyToMany
+    @JoinTable(name = "planets_species", joinColumns = @JoinColumn(name = "planets_id"),
+            inverseJoinColumns = @JoinColumn(name = "species_id"))
+    @JsonIgnore
+    private Set<Species> species;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "starships_id", referencedColumnName = "id")
-    @JsonIgnoreProperties("character")
-    private Starships starships;
-
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "vehicle_id", referencedColumnName = "id")
-    @JsonIgnoreProperties("character")
-    private Vehicle vehicle;
+    @ManyToMany
+    @JoinTable(name = "planets_starships", joinColumns = @JoinColumn(name = "planets_id"),
+            inverseJoinColumns = @JoinColumn(name = "starships_id"))
+    @JsonIgnore
+    private Set<Starships> starships;
+    @ManyToMany
+    @JoinTable(name = "planets_vehicle", joinColumns = @JoinColumn(name = "planets_id"),
+            inverseJoinColumns = @JoinColumn(name = "vehicle_id"))
+    @JsonIgnore
+    private Set<Vehicle> vehicle;
 
 
 

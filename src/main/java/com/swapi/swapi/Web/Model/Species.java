@@ -1,11 +1,13 @@
 package com.swapi.swapi.Web.Model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
@@ -40,14 +42,26 @@ public class Species {
     private String name;
     //@OneToMany(mappedBy = "species")
     //private Set<Vehicle> vehicles;
-    @OneToOne(mappedBy = "species")
-    @JsonIgnoreProperties("species")
-    private Character character;
+    @ManyToMany(mappedBy = "species")
+    private Set<Character> characters = new HashSet<>();
+    @ManyToMany(mappedBy = "species")
+    private Set<Film> films = new HashSet<>();
+    @ManyToMany(mappedBy = "species")
+    private Set<Planets> planets = new HashSet<>();
+
+    @ManyToMany
+    @JoinTable(name = "species_starships", joinColumns = @JoinColumn(name = "species_id"),
+            inverseJoinColumns = @JoinColumn(name = "starships_id"))
+    @JsonIgnore
+    private Set<Starships> starships;
+    @ManyToMany
+    @JoinTable(name = "species_vehicle", joinColumns = @JoinColumn(name = "species_id"),
+            inverseJoinColumns = @JoinColumn(name = "vehicle_id"))
+    @JsonIgnore
+    private Set<Vehicle> vehicle;
     @JsonProperty("skin_colors")
     private String skincolors;
 
-    @OneToOne(mappedBy = "species")
-    @JsonIgnoreProperties("species")
-    private Film film;
+
 
 }

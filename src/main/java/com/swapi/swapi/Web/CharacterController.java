@@ -5,7 +5,7 @@ import com.swapi.swapi.Web.error.InvalidObjectException;
 import com.swapi.swapi.Web.Model.Character;
 import com.swapi.swapi.Web.dto.character.CharacterCreateRequest;
 import com.swapi.swapi.Web.dto.character.CharacterResponse;
-import com.swapi.swapi.Web.mapping.CharacterMapperC;
+import com.swapi.swapi.Web.mapping.CharacterMapper;
 
 import com.swapi.swapi.Web.service.CharacterService;
 import com.swapi.swapi.Web.validation.ObjectValidator;
@@ -29,7 +29,7 @@ public class CharacterController {
     @Autowired
     private CharacterService characterService;
     @Autowired
-    private CharacterMapperC characterMapper;
+    private CharacterMapper characterMapper;
     private final Integer Page_Size = 10;
 
 

@@ -1,17 +1,11 @@
 package com.swapi.swapi.Web;
 
-import com.swapi.swapi.Web.Model.Character;
 import com.swapi.swapi.Web.Model.Film;
-import com.swapi.swapi.Web.dto.character.CharacterApiPage;
-import com.swapi.swapi.Web.dto.character.CharacterCreateRequest;
-import com.swapi.swapi.Web.dto.character.CharacterResponse;
 import com.swapi.swapi.Web.dto.film.FilmApiPage;
 import com.swapi.swapi.Web.dto.film.FilmCreateRequest;
 import com.swapi.swapi.Web.dto.film.FilmResponse;
 import com.swapi.swapi.Web.error.InvalidObjectException;
-import com.swapi.swapi.Web.mapping.CharacterMapperC;
-import com.swapi.swapi.Web.mapping.FilmMapperC;
-import com.swapi.swapi.Web.service.CharacterService;
+import com.swapi.swapi.Web.mapping.FilmMapper;
 import com.swapi.swapi.Web.service.FilmService;
 import com.swapi.swapi.Web.validation.ObjectValidator;
 import lombok.AllArgsConstructor;
@@ -32,7 +26,7 @@ public class FilmController {
     @Autowired
     private FilmService filmService;
     @Autowired
-    private FilmMapperC filmMapper;
+    private FilmMapper filmMapper;
     private final Integer Page_Size = 10;
 
 

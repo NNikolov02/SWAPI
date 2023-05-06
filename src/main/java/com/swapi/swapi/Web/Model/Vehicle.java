@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -47,13 +49,17 @@ public class Vehicle {
     @JsonProperty("vehicle_class")
     private String vehicleclass;
 
-    @OneToOne(mappedBy = "vehicle")
-    @JsonIgnoreProperties("vehicle")
-    private Character character;
+    @ManyToMany(mappedBy = "vehicle")
+    private Set<Character> characters = new HashSet<>();
+    @ManyToMany(mappedBy = "vehicle")
+    private Set<Film> films = new HashSet<>();
+    @ManyToMany(mappedBy = "vehicle")
+    private Set<Planets> planets = new HashSet<>();
+    @ManyToMany(mappedBy = "vehicle")
+    private Set<Species> species = new HashSet<>();
 
-    @OneToOne(mappedBy = "vehicle")
-    @JsonIgnoreProperties("vehicle")
-    private Film film;
+    @ManyToMany(mappedBy = "vehicle")
+    private Set<Starships> starships = new HashSet<>();
 
 
 }

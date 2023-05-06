@@ -7,6 +7,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 import lombok.Data;
 
+import java.util.List;
+import java.util.Set;
+
 @Data
 @Builder
 public class CharacterUpdateRequest {
@@ -16,7 +19,7 @@ public class CharacterUpdateRequest {
     @ValidGender(message = "Character should be male or female")
     private String gender;
 
-    private SpeciesDto species;
+
 
     private int height;
 
@@ -24,16 +27,15 @@ public class CharacterUpdateRequest {
     @JsonProperty("birth_year")
     private String birthYear;
 
+    private Set<FilmDto> films;
 
-    private FilmDto characterFilm;
-
-
-    private StarshipsDto characterStarships;
+    private Set<StarshipsDto> starships;
 
 
-    private PlanetsDto characterPlanets;
+    private Set<PlanetsDto> planets;
 
 
-    private VehicleDto characterVehicle;
+    private Set<VehicleDto> vehicle;
 
+    private Set<SpeciesDto> species;
 }

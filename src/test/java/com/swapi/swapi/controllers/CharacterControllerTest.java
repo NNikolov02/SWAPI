@@ -3,7 +3,6 @@ package com.swapi.swapi.controllers;
 import com.swapi.swapi.Web.CharacterController;
 import com.swapi.swapi.Web.Model.Character;
 import com.swapi.swapi.Web.mapping.CharacterMapper;
-import com.swapi.swapi.Web.mapping.CharacterMapperC;
 import com.swapi.swapi.Web.service.CharacterService;
 import com.swapi.swapi.Web.validation.ObjectValidator;
 import org.junit.jupiter.api.Test;
@@ -38,7 +37,7 @@ public class CharacterControllerTest {
         private CharacterService characterService;
 
         @MockBean
-        private CharacterMapperC characterMapper;
+        private CharacterMapper characterMapper;
 
         @MockBean
         private ObjectValidator validator;

@@ -5,6 +5,8 @@ import com.swapi.swapi.Web.dto.*;
 import lombok.Builder;
 import lombok.Data;
 
+import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 @Data
@@ -31,15 +33,15 @@ public class PlanetsResponse {
     @JsonProperty("surface_water")
     private String surface_water;
     private String terrain;
-    private CharacterDto character;
+    private Set<CharacterDto> character;
 
-    private StarshipsDto starships;
-
-
-    private FilmDto film;
+    private Set<StarshipsDto> starships;
 
 
-    private VehicleDto vehicle;
+    private Set<FilmDto> film;
 
-    private SpeciesDto species;
+
+    private Set<VehicleDto> vehicle;
+
+    private Set<SpeciesDto> species;
 }
