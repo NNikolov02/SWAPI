@@ -1,14 +1,14 @@
 package com.swapi.swapi.Web;
 
-import com.swapi.swapi.Web.dto.character.CharacterApiPage;
-import com.swapi.swapi.Web.error.InvalidObjectException;
-import com.swapi.swapi.Web.Model.Character;
-import com.swapi.swapi.Web.dto.character.CharacterCreateRequest;
-import com.swapi.swapi.Web.dto.character.CharacterResponse;
-import com.swapi.swapi.Web.mapping.CharacterMapper;
+import com.swapi.swapi.dto.character.CharacterApiPage;
+import com.swapi.swapi.error.InvalidObjectException;
+import com.swapi.swapi.Model.Character;
+import com.swapi.swapi.dto.character.CharacterCreateRequest;
+import com.swapi.swapi.dto.character.CharacterResponse;
+import com.swapi.swapi.mapping.CharacterMapper;
 
-import com.swapi.swapi.Web.service.CharacterService;
-import com.swapi.swapi.Web.validation.ObjectValidator;
+import com.swapi.swapi.service.CharacterService;
+import com.swapi.swapi.validation.ObjectValidator;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

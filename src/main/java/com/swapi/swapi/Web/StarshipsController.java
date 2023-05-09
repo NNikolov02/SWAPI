@@ -1,19 +1,13 @@
 package com.swapi.swapi.Web;
 
-import com.swapi.swapi.Web.Model.Species;
-import com.swapi.swapi.Web.Model.Starships;
-import com.swapi.swapi.Web.dto.species.SpeciesApiPage;
-import com.swapi.swapi.Web.dto.species.SpeciesCreateRequest;
-import com.swapi.swapi.Web.dto.species.SpeciesResponse;
-import com.swapi.swapi.Web.dto.starships.StarshipsApiPage;
-import com.swapi.swapi.Web.dto.starships.StarshipsCreateRequest;
-import com.swapi.swapi.Web.dto.starships.StarshipsResponse;
-import com.swapi.swapi.Web.error.InvalidObjectException;
-import com.swapi.swapi.Web.mapping.SpeciesMapper;
-import com.swapi.swapi.Web.mapping.StarshipsMapper;
-import com.swapi.swapi.Web.service.SpeciesService;
-import com.swapi.swapi.Web.service.StarshipsService;
-import com.swapi.swapi.Web.validation.ObjectValidator;
+import com.swapi.swapi.Model.Starship;
+import com.swapi.swapi.dto.starships.StarshipsApiPage;
+import com.swapi.swapi.dto.starships.StarshipsCreateRequest;
+import com.swapi.swapi.dto.starships.StarshipsResponse;
+import com.swapi.swapi.error.InvalidObjectException;
+import com.swapi.swapi.mapping.StarshipsMapper;
+import com.swapi.swapi.service.StarshipsService;
+import com.swapi.swapi.validation.ObjectValidator;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -50,7 +44,7 @@ public class StarshipsController {
 
     @GetMapping("/{starshipsId}")
     public ResponseEntity<StarshipsResponse> getStarshipsById(@PathVariable String starshipsId) {
-        Starships starships = starshipsService.findById(starshipsId);
+        Starship starships = starshipsService.findById(starshipsId);
 
         return ResponseEntity.ok(starshipssMapper.responseFromModel(starships));
     }
@@ -69,9 +63,9 @@ public class StarshipsController {
         }
 
 
-        Starships mappedStarships = starshipssMapper.modelFromCreateRequest(starshipsDto);
+        Starship mappedStarships = starshipssMapper.modelFromCreateRequest(starshipsDto);
 
-        Starships savedStarships = starshipsService.save(mappedStarships);
+        Starship savedStarships = starshipsService.save(mappedStarships);
 
         StarshipsResponse responseStarships = starshipssMapper.responseFromModel(savedStarships);
 

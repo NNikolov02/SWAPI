@@ -1,15 +1,17 @@
 package com.swapi.swapi.Web;
 
 
-import com.swapi.swapi.Web.Model.Planets;
+import com.swapi.swapi.Model.Film;
+import com.swapi.swapi.Model.Planet;
 
-import com.swapi.swapi.Web.dto.planets.PlanetsApiPage;
-import com.swapi.swapi.Web.dto.planets.PlanetsCreateRequest;
-import com.swapi.swapi.Web.dto.planets.PlanetsResponse;
-import com.swapi.swapi.Web.error.InvalidObjectException;
-import com.swapi.swapi.Web.mapping.PlanetsMapper;
-import com.swapi.swapi.Web.service.PlanetsService;
-import com.swapi.swapi.Web.validation.ObjectValidator;
+import com.swapi.swapi.dto.film.FilmResponse;
+import com.swapi.swapi.dto.planets.PlanetsApiPage;
+import com.swapi.swapi.dto.planets.PlanetsCreateRequest;
+import com.swapi.swapi.dto.planets.PlanetsResponse;
+import com.swapi.swapi.error.InvalidObjectException;
+import com.swapi.swapi.mapping.PlanetsMapper;
+import com.swapi.swapi.service.PlanetsService;
+import com.swapi.swapi.validation.ObjectValidator;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -17,6 +19,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
+import java.util.UUID;
+
 
 @RestController
 @RequestMapping("/planets")
@@ -44,11 +48,11 @@ public class PlanetsController {
     }
 
 
-    @GetMapping("/{planetsId}")
-    public ResponseEntity<PlanetsResponse> getPlanetsById(@PathVariable String planetsId) {
-        Planets planets = planetsService.findById(planetsId);
+    @GetMapping("/{planetId}")
+    public ResponseEntity<PlanetsResponse> getFilmById(@PathVariable String planetsId) {
+        Planet planet = planetsService.findById(planetsId);
 
-        return ResponseEntity.ok(planetsMapper.responseFromModel(planets));
+        return ResponseEntity.ok(planetsMapper.responseFromModel(planet));
     }
 
     @DeleteMapping("/{planetsId}")
@@ -65,9 +69,9 @@ public class PlanetsController {
         }
 
 
-        Planets mappedPlanets = planetsMapper.modelFromCreateRequest(planetsDto);
+        Planet mappedPlanets = planetsMapper.modelFromCreateRequest(planetsDto);
 
-        Planets savedPlanets = planetsService.save(mappedPlanets);
+        Planet savedPlanets = planetsService.save(mappedPlanets);
 
         PlanetsResponse responsePlanets = planetsMapper.responseFromModel(savedPlanets);
 

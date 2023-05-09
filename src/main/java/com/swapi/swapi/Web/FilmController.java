@@ -1,13 +1,13 @@
 package com.swapi.swapi.Web;
 
-import com.swapi.swapi.Web.Model.Film;
-import com.swapi.swapi.Web.dto.film.FilmApiPage;
-import com.swapi.swapi.Web.dto.film.FilmCreateRequest;
-import com.swapi.swapi.Web.dto.film.FilmResponse;
-import com.swapi.swapi.Web.error.InvalidObjectException;
-import com.swapi.swapi.Web.mapping.FilmMapper;
-import com.swapi.swapi.Web.service.FilmService;
-import com.swapi.swapi.Web.validation.ObjectValidator;
+import com.swapi.swapi.Model.Film;
+import com.swapi.swapi.dto.film.FilmApiPage;
+import com.swapi.swapi.dto.film.FilmCreateRequest;
+import com.swapi.swapi.dto.film.FilmResponse;
+import com.swapi.swapi.error.InvalidObjectException;
+import com.swapi.swapi.mapping.FilmMapper;
+import com.swapi.swapi.service.FilmService;
+import com.swapi.swapi.validation.ObjectValidator;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

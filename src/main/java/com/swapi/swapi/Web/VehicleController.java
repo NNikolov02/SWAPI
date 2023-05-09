@@ -1,19 +1,13 @@
 package com.swapi.swapi.Web;
 
-import com.swapi.swapi.Web.Model.Starships;
-import com.swapi.swapi.Web.Model.Vehicle;
-import com.swapi.swapi.Web.dto.starships.StarshipsApiPage;
-import com.swapi.swapi.Web.dto.starships.StarshipsCreateRequest;
-import com.swapi.swapi.Web.dto.starships.StarshipsResponse;
-import com.swapi.swapi.Web.dto.vehicle.VehicleApiPage;
-import com.swapi.swapi.Web.dto.vehicle.VehicleCreateRequest;
-import com.swapi.swapi.Web.dto.vehicle.VehicleResponse;
-import com.swapi.swapi.Web.error.InvalidObjectException;
-import com.swapi.swapi.Web.mapping.StarshipsMapper;
-import com.swapi.swapi.Web.mapping.VehicleMapper;
-import com.swapi.swapi.Web.service.StarshipsService;
-import com.swapi.swapi.Web.service.VehicleService;
-import com.swapi.swapi.Web.validation.ObjectValidator;
+import com.swapi.swapi.Model.Vehicle;
+import com.swapi.swapi.dto.vehicle.VehicleApiPage;
+import com.swapi.swapi.dto.vehicle.VehicleCreateRequest;
+import com.swapi.swapi.dto.vehicle.VehicleResponse;
+import com.swapi.swapi.error.InvalidObjectException;
+import com.swapi.swapi.mapping.VehicleMapper;
+import com.swapi.swapi.service.VehicleService;
+import com.swapi.swapi.validation.ObjectValidator;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

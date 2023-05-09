@@ -1,10 +1,10 @@
 package com.swapi.swapi.controllers;
 
 import com.swapi.swapi.Web.CharacterController;
-import com.swapi.swapi.Web.Model.Character;
-import com.swapi.swapi.Web.mapping.CharacterMapper;
-import com.swapi.swapi.Web.service.CharacterService;
-import com.swapi.swapi.Web.validation.ObjectValidator;
+import com.swapi.swapi.Model.Character;
+import com.swapi.swapi.mapping.CharacterMapper;
+import com.swapi.swapi.service.CharacterService;
+import com.swapi.swapi.validation.ObjectValidator;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.springframework.beans.factory.annotation.Autowired;

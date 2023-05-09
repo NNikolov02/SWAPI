@@ -1,20 +1,14 @@
 package com.swapi.swapi.Web;
 
 
-import com.swapi.swapi.Web.Model.Planets;
-import com.swapi.swapi.Web.Model.Species;
-import com.swapi.swapi.Web.dto.planets.PlanetsApiPage;
-import com.swapi.swapi.Web.dto.planets.PlanetsCreateRequest;
-import com.swapi.swapi.Web.dto.planets.PlanetsResponse;
-import com.swapi.swapi.Web.dto.species.SpeciesApiPage;
-import com.swapi.swapi.Web.dto.species.SpeciesCreateRequest;
-import com.swapi.swapi.Web.dto.species.SpeciesResponse;
-import com.swapi.swapi.Web.error.InvalidObjectException;
-import com.swapi.swapi.Web.mapping.PlanetsMapper;
-import com.swapi.swapi.Web.mapping.SpeciesMapper;
-import com.swapi.swapi.Web.service.PlanetsService;
-import com.swapi.swapi.Web.service.SpeciesService;
-import com.swapi.swapi.Web.validation.ObjectValidator;
+import com.swapi.swapi.Model.Species;
+import com.swapi.swapi.dto.species.SpeciesApiPage;
+import com.swapi.swapi.dto.species.SpeciesCreateRequest;
+import com.swapi.swapi.dto.species.SpeciesResponse;
+import com.swapi.swapi.error.InvalidObjectException;
+import com.swapi.swapi.mapping.SpeciesMapper;
+import com.swapi.swapi.service.SpeciesService;
+import com.swapi.swapi.validation.ObjectValidator;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
