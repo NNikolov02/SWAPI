@@ -1,5 +1,6 @@
 package com.swapi.swapi.mapping;
 
+import com.swapi.swapi.Model.Starship;
 import com.swapi.swapi.Model.Vehicle;
 import com.swapi.swapi.dto.vehicle.VehicleCreateRequest;
 import com.swapi.swapi.dto.vehicle.VehicleResponse;
@@ -10,11 +11,15 @@ import org.mapstruct.MappingTarget;
 import org.mapstruct.NullValuePropertyMappingStrategy;
 import org.springframework.stereotype.Component;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Component
 @Mapper(uses = {CharacterMapperDTO.class, FilmMapperDTO.class, PlanetsMapperDTO.class, SpeciesMapperDTO.class, StarshipsMapperDTO.class})
 public interface VehicleMapper {
+
+
 
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "characters", ignore = true)

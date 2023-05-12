@@ -26,15 +26,15 @@ public class CharacterUpdateRequest {
     @JsonProperty("birth_year")
     private String birthYear;
 
-    private Set<FilmDto> films;
+    private Set<String> films;
 
-    private Set<StarshipsDto> starships;
-
-
-    private Set<PlanetsDto> planets;
+    private Set<String> starships;
 
 
-    private Set<VehicleDto> vehicle;
+    private Set<String> planets;
 
-    private Set<SpeciesDto> species;
+
+    private Set<String> vehicle;
+
+    private Set<String> species;
 }

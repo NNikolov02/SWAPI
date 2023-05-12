@@ -1,5 +1,6 @@
 package com.swapi.swapi.mapping;
 
+import com.swapi.swapi.Model.Character;
 import com.swapi.swapi.Model.Film;
 import com.swapi.swapi.dto.film.FilmCreateRequest;
 import com.swapi.swapi.dto.film.FilmResponse;
@@ -10,7 +11,9 @@ import org.mapstruct.MappingTarget;
 import org.mapstruct.NullValuePropertyMappingStrategy;
 import org.springframework.stereotype.Component;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Component
 @Mapper(uses = {CharacterMapperDTO.class, PlanetsMapperDTO.class, SpeciesMapperDTO.class, StarshipsMapperDTO.class, VehicleMapperDTO.class})
