@@ -4,6 +4,7 @@ package com.swapi.swapi.Web;
 import com.swapi.swapi.Model.Film;
 import com.swapi.swapi.Model.Planet;
 
+import com.swapi.swapi.dto.character.CharacterResponse;
 import com.swapi.swapi.dto.film.FilmResponse;
 import com.swapi.swapi.dto.planets.PlanetsApiPage;
 import com.swapi.swapi.dto.planets.PlanetsCreateRequest;
@@ -51,8 +52,11 @@ public class PlanetsController {
     @GetMapping("/{planetId}")
     public ResponseEntity<PlanetsResponse> getFilmById(@PathVariable String planetsId) {
         Planet planet = planetsService.findById(planetsId);
+        PlanetsResponse responsePlanets = planetsMapper.responseFromModel(planet);
+        responsePlanets.getUrl();
 
-        return ResponseEntity.ok(planetsMapper.responseFromModel(planet));
+
+        return ResponseEntity.ok(responsePlanets);
     }
 
     @DeleteMapping("/{planetsId}")

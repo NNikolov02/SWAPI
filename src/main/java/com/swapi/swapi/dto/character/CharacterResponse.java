@@ -19,6 +19,10 @@ public class CharacterResponse {
 
     private String url;
 
+    public String getUrl() {
+        return "https://localhost8081/" + "characters" + "/" + id.toString();
+    }
+
 
     private String name;
     @ValidGender(message = "Character should be male or female!")

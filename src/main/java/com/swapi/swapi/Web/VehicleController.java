@@ -1,6 +1,7 @@
 package com.swapi.swapi.Web;
 
 import com.swapi.swapi.Model.Vehicle;
+import com.swapi.swapi.dto.character.CharacterResponse;
 import com.swapi.swapi.dto.vehicle.VehicleApiPage;
 import com.swapi.swapi.dto.vehicle.VehicleCreateRequest;
 import com.swapi.swapi.dto.vehicle.VehicleResponse;
@@ -46,7 +47,11 @@ public class VehicleController {
     public ResponseEntity<VehicleResponse> getStarshipsById(@PathVariable String vehicleId) {
         Vehicle vehicle = vehicleService.findById(vehicleId);
 
-        return ResponseEntity.ok(vehicleMapper.responseFromModel(vehicle));
+        VehicleResponse responseVehicle = vehicleMapper.responseFromModel(vehicle);
+       responseVehicle.getUrl();
+
+
+        return ResponseEntity.ok(responseVehicle);
     }
 
     @DeleteMapping("/{vehicleId}")

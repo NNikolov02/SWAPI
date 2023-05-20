@@ -2,6 +2,7 @@ package com.swapi.swapi.Web;
 
 
 import com.swapi.swapi.Model.Species;
+import com.swapi.swapi.dto.character.CharacterResponse;
 import com.swapi.swapi.dto.species.SpeciesApiPage;
 import com.swapi.swapi.dto.species.SpeciesCreateRequest;
 import com.swapi.swapi.dto.species.SpeciesResponse;
@@ -47,7 +48,11 @@ public class SpeciesController {
     public ResponseEntity<SpeciesResponse> getSpeciesById(@PathVariable String speciesId) {
         Species species = speciesService.findById(speciesId);
 
-        return ResponseEntity.ok(speciesMapper.responseFromModel(species));
+        SpeciesResponse responseSpecies = speciesMapper.responseFromModel(species);
+        responseSpecies.getUrl();
+
+
+        return ResponseEntity.ok(responseSpecies);
     }
 
     @DeleteMapping("/{speciesId}")

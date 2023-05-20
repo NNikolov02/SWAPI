@@ -14,6 +14,9 @@ import java.util.UUID;
 public class SpeciesResponse {
 
     private UUID id;
+    public String getUrl() {
+        return "https://localhost8081/" + "species" + "/" + id.toString();
+    }
     @JsonProperty("average_height")
     private String averageheight;
 

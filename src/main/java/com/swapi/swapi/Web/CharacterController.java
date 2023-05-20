@@ -50,7 +50,12 @@ public class CharacterController {
     public ResponseEntity<CharacterResponse> getCharacterById(@PathVariable String characterId) {
        Character character = characterService.findById(characterId);
 
-        return ResponseEntity.ok(characterMapper.responseFromModel(character));
+
+        CharacterResponse responseCharacter = characterMapper.responseFromModel(character);
+        responseCharacter.getUrl();
+
+
+        return ResponseEntity.ok(responseCharacter);
     }
     @DeleteMapping("/{characterId}")
     public void deleteCharacterById(@PathVariable String characterId) {

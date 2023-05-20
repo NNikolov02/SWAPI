@@ -16,6 +16,9 @@ public class FilmResponse {
     private UUID id;
 
     private String url;
+    public String getUrl() {
+        return "https://localhost8081/" + "films" + "/" + id.toString();
+    }
     private String title;
 
     private String created;

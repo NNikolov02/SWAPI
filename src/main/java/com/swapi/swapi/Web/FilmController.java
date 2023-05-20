@@ -1,6 +1,7 @@
 package com.swapi.swapi.Web;
 
 import com.swapi.swapi.Model.Film;
+import com.swapi.swapi.dto.character.CharacterResponse;
 import com.swapi.swapi.dto.film.FilmApiPage;
 import com.swapi.swapi.dto.film.FilmCreateRequest;
 import com.swapi.swapi.dto.film.FilmResponse;
@@ -45,8 +46,11 @@ public class FilmController {
     @GetMapping("/{filmId}")
     public ResponseEntity<FilmResponse> getFilmById(@PathVariable String filmId) {
         Film film = filmService.findById(filmId);
+        FilmResponse responseFilm = filmMapper.responseFromModel(film);
+        responseFilm.getUrl();
 
-        return ResponseEntity.ok(filmMapper.responseFromModel(film));
+
+        return ResponseEntity.ok(responseFilm);
     }
     @DeleteMapping("/{filmId}")
     public void deletefilmById(@PathVariable String filmId) {

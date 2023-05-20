@@ -16,6 +16,9 @@ public class PlanetsResponse {
     private UUID id;
 
     private String url;
+    public String getUrl() {
+        return "https://localhost8081/" + "planets" + "/" + id.toString();
+    }
 
     private String climate;
     private String created;

@@ -16,6 +16,9 @@ public class VehicleResponse {
     private UUID id;
 
     private String url;
+    public String getUrl() {
+        return "https://localhost8081/" + "vehicle" + "/" + id.toString();
+    }
 
     private String name;
 

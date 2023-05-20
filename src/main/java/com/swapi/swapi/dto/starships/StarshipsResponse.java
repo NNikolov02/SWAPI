@@ -15,6 +15,9 @@ public class StarshipsResponse {
     private UUID id;
 
     private String url;
+    public String getUrl() {
+        return "https://localhost8081/" + "starships" + "/" + id.toString();
+    }
     private String name;
 
     private String MGLT;

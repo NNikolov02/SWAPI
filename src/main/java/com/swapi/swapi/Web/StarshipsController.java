@@ -1,6 +1,7 @@
 package com.swapi.swapi.Web;
 
 import com.swapi.swapi.Model.Starship;
+import com.swapi.swapi.dto.character.CharacterResponse;
 import com.swapi.swapi.dto.starships.StarshipsApiPage;
 import com.swapi.swapi.dto.starships.StarshipsCreateRequest;
 import com.swapi.swapi.dto.starships.StarshipsResponse;
@@ -45,8 +46,11 @@ public class StarshipsController {
     @GetMapping("/{starshipsId}")
     public ResponseEntity<StarshipsResponse> getStarshipsById(@PathVariable String starshipsId) {
         Starship starships = starshipsService.findById(starshipsId);
+        StarshipsResponse responseStarships = starshipssMapper.responseFromModel(starships);
+        responseStarships.getUrl();
 
-        return ResponseEntity.ok(starshipssMapper.responseFromModel(starships));
+
+        return ResponseEntity.ok(responseStarships);
     }
 
     @DeleteMapping("/{starshipsId}")
