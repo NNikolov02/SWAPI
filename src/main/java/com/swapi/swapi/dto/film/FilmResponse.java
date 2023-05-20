@@ -17,7 +17,7 @@ public class FilmResponse {
 
     private String url;
     public String getUrl() {
-        return "https://localhost8081/" + "films" + "/" + id.toString();
+        return "http://localhost:8081/" + "films" + "/" + id.toString();
     }
     private String title;
 

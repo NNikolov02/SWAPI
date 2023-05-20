@@ -17,7 +17,7 @@ public class VehicleResponse {
 
     private String url;
     public String getUrl() {
-        return "https://localhost8081/" + "vehicle" + "/" + id.toString();
+        return "http://localhost:8081/" + "vehicle" + "/" + id.toString();
     }
 
     private String name;

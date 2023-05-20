@@ -17,7 +17,7 @@ public class PlanetsResponse {
 
     private String url;
     public String getUrl() {
-        return "https://localhost8081/" + "planets" + "/" + id.toString();
+        return "http://localhost:8081/" + "planets" + "/" + id.toString();
     }
 
     private String climate;

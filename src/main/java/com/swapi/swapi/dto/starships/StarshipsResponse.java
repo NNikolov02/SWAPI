@@ -16,7 +16,7 @@ public class StarshipsResponse {
 
     private String url;
     public String getUrl() {
-        return "https://localhost8081/" + "starships" + "/" + id.toString();
+        return "http://localhost:8081/" + "starships" + "/" + id.toString();
     }
     private String name;
 

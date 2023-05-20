@@ -20,7 +20,7 @@ public class CharacterResponse {
     private String url;
 
     public String getUrl() {
-        return "https://localhost8081/" + "characters" + "/" + id.toString();
+        return "http://localhost:8081/" + "characters" + "/" + id.toString();
     }
 
 
