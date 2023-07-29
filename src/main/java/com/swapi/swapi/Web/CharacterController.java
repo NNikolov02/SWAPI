@@ -72,7 +72,9 @@ public class CharacterController {
 
         Character mappedCharacter = characterMapper.modelFromCreateRequest(characterDto);
 
+
         Character savedCharacter = characterService.save(mappedCharacter);
+        savedCharacter.getUrl();
 
         CharacterResponse responseCharacter = characterMapper.responseFromModel(savedCharacter);
 

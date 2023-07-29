@@ -2,6 +2,7 @@ package com.swapi.swapi.dto.character;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import com.swapi.swapi.Model.Planet;
 import com.swapi.swapi.dto.*;
 import com.swapi.swapi.validation.ValidGender;
 import lombok.Builder;
@@ -18,6 +19,7 @@ public class CharacterResponse {
     private UUID id;
 
     private String url;
+
 
     public String getUrl() {
         return "http://localhost:8081/" + "characters" + "/" + id.toString();

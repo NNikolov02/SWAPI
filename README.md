@@ -1,0 +1,4 @@
+# My Spring Project
+  # SWAPI
+
+The SWAPI (Star Wars API) project is an open-source endeavor that provides a RESTful API for accessing an extensive collection of data related to the Star Wars movies. This exercise involves getting started with SWAPI and integrating its data into your projects. You'll learn how to retrieve information about characters, films, starships, vehicles, species, and planets from the beloved Star Wars universe using the provided API endpoints. The exercise also covers basic usage, installation steps, and how to contribute to the project's development. Let the Force guide you as you explore the galaxy far, far away with SWAPI!

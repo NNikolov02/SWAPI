@@ -22,7 +22,6 @@ public interface CharacterMapper {
 
 
     @Mapping(target = "id", ignore = true)
-    @Mapping(target = "films",  ignore = true)
     @Mapping(target = "vehicle", ignore = true)
     @Mapping(target = "starships", ignore = true)
     @Mapping(target = "planets", ignore = true)

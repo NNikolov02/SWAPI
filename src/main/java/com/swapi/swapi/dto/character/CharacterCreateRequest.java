@@ -9,6 +9,7 @@ import lombok.Data;
 import org.hibernate.validator.constraints.Range;
 
 import java.util.Set;
+import java.util.UUID;
 
 @Data
 @Builder
@@ -38,5 +39,11 @@ public class CharacterCreateRequest {
     private Set<String> vehicle;
 
     private Set<String> species;
+    private UUID id;
+
+
+    public String getUrl() {
+        return "http://localhost:8081/" + "characters" + "/" + id.toString();
+    }
 
 }
